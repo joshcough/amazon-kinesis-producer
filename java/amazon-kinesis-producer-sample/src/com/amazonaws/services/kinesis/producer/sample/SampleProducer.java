@@ -162,11 +162,11 @@ public class SampleProducer {
         // them on to the child process.
         // config.setNativeExecutable("my_directory/kinesis_producer");
         
-        // If you end up using the default configuration (a Configuration instance
+        // If you end up using the default configuration (a KinesisProducerConfiguration instance
         // without any calls to set*), you can just leave the config argument
         // out.
         //
-        // Note that if you do pass a Configuration instance, mutating that
+        // Note that if you do pass a KinesisProducerConfiguration instance, mutating that
         // instance after initializing KinesisProducer has no effect. We do not
         // support dynamic re-configuration at the moment.
         KinesisProducer producer = new KinesisProducer(config);
@@ -251,7 +251,7 @@ public class SampleProducer {
         // flush methods available.
         //
         // Records are also automatically flushed by the KPL after a while based
-        // on the time limit set with Configuration.setRecordMaxBufferedTime()
+        // on the time limit set with KinesisProducerConfiguration.setRecordMaxBufferedTime()
         log.info("Waiting for remaining puts to finish...");
         producer.flushSync();
         log.info("All records complete.");
